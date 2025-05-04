@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import Agenda from "./pages/Agenda";
+import Chat from "./pages/Chat";
+import Home from "./pages/Home";
+import Perfil from "./pages/Perfil";
+import Search from "./pages/Search";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="flex flex-col justify-between bg-[#B7D1D0] min-h-screen">
+        <div className="h-dvh flex-1 overflow-y-auto">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/agenda" element={<Agenda />} />
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/perfil" element={<Perfil />} />
+            <Route path="/search" element={<Search />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
