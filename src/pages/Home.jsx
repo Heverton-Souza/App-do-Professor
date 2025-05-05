@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Search, ChevronRight, CalendarPlus  } from "lucide-react";
+import { Search, ChevronRight, CalendarPlus, Menu } from "lucide-react"; // Importando o ícone de menu
 
 export default function Home() {
   const [tab, setTab] = useState("atividades");
   const [focused, setFocused] = useState(false);
   const [showReminder, setShowReminder] = useState(true); // Estado para controlar a visibilidade do aviso
+  const [menuVisible, setMenuVisible] = useState(false); // Estado para controlar a visibilidade do menu lateral
 
   const atividades = [
     {
@@ -32,10 +33,47 @@ export default function Home() {
 
   return (
     <div>
+      {/* Fundo preto com blur quando o menu estiver aberto */}
+      {menuVisible && (
+        <div
+          onClick={() => setMenuVisible(false)} // Fecha o menu ao clicar no fundo
+          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-sm z-30"
+        />
+      )}
+
+      {/* Menu Lateral */}
+      <div
+        className={`fixed top-0 right-0 ps-5 h-full bg-[#B7D1D0] shadow-lg z-30 transition-transform duration-300 ${menuVisible ? "translate-x-0" : "translate-x-full"}`}
+        style={{ width: "85%" }}
+      >
+        <div className="p-4">
+          <ul className="mt-6 text-[#118693] font-medium">
+            <li className="py-2 text-xl">
+              <button onClick={() => setTab("atividades")}>Atividades</button>
+            </li>
+            <li className="py-2 text-xl">
+              <button>Notas</button>
+            </li>
+            <li className="py-2 text-xl">
+              <button>Reservar Sala</button>
+            </li>
+            <li className="py-2 text-xl">
+              <button>Matriz Curricular</button>
+            </li>
+            <li className="py-2 text-xl">
+              <button>Ajuda</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Barra superior e conteúdo principal */}
       <div className="bg-[#118693] m-0 p-0">
         <div className="p-5">
           <div className="flex justify-end text-white text-xl">
-            <button><i className="fa-solid fa-bars"></i></button>
+            <button onClick={() => setMenuVisible(true)}>
+              <Menu size={24} />
+            </button>
           </div>
 
           <h1 className="font-semibold mb-3 text-[white] text-2xl">Olá, Fernando</h1>
@@ -106,7 +144,6 @@ export default function Home() {
       {/* Conteúdo das Abas */}
       <div className="flex flex-col gap-3 mx-3">
         {tab === "atividades" ? (
-          // Conteúdo para a aba "Atividades"
           atividades.map((atividade) => (
             <div
               key={atividade.id}
@@ -127,12 +164,10 @@ export default function Home() {
         ) : (
           <div>
             <h1 className="mt-3 mb-4 text-xl font-semibold">Próximos Eventos</h1>
-            
             <div className="bg-white rounded-xl flex justify-between content-center shadow p-4">
               <div>
                 <h3 className="font-medium text-xl">24 de março</h3>
                 <div className="flex">
-                  {/* Centralizando o texto dentro do fundo colorido */}
                   <span className="bg-[#60C1CC] rounded-full text-white text-sm px-3 py-0.5 flex items-center justify-center me-2">
                     Reserva
                   </span>
@@ -145,7 +180,7 @@ export default function Home() {
             </div>
 
             <div className="bg-white rounded-xl flex items-center justify-center shadow p-4 mt-4 text-lg text-gray-700">
-              <i class="fa-solid fa-plus"></i>
+              <i className="fa-solid fa-plus"></i>
               <p className="font-medium ms-2">Reservar sala</p>
             </div>
           </div>
