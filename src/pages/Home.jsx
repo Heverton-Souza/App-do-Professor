@@ -1,11 +1,23 @@
 import { useState } from "react";
 import { Search, ChevronRight, CalendarPlus, Menu } from "lucide-react"; // Importando o ícone de menu
+import ModalFiltroHome from "../components/ModalFiltroHome";
+
+
+
 
 export default function Home() {
   const [tab, setTab] = useState("atividades");
   const [focused, setFocused] = useState(false);
   const [showReminder, setShowReminder] = useState(true); // Estado para controlar a visibilidade do aviso
   const [menuVisible, setMenuVisible] = useState(false); // Estado para controlar a visibilidade do menu lateral
+  const [showModalFiltro, setShowModalFiltro] = useState(false);
+  const [categoriaFiltro, setCategoriaFiltro] = useState(""); // nova state
+
+  const abrirFiltro = (categoria) => {
+    setCategoriaFiltro(categoria);
+    setShowModalFiltro(true);
+  };
+  
 
   const atividades = [
     {
@@ -119,7 +131,7 @@ export default function Home() {
 
       {/* Só exibe Search, Turmas e Alunos quando a aba for "Atividades" */}
       {tab === "atividades" && (
-        <>
+        <div>
           <div className="mb-3 mt-5 mx-3 relative">
             <input
               type="text"
@@ -135,10 +147,15 @@ export default function Home() {
           </div>
 
           <div className="flex gap-2 mb-4 mx-3">
-            <button className="text-[#1d666e] text-xs px-3 py-1 rounded-full border border-[#1d666e]">Todas as turmas</button>
-            <button className="text-[#1d666e] text-xs px-3 py-1 rounded-full border border-[#1d666e]">Todos os alunos</button>
+            <button className="text-[#1d666e] text-xs px-3 py-1 rounded-full border border-[#1d666e]" onClick={() => abrirFiltro("disciplinas")}>
+              Todas as turmas
+            </button>
+            <button className="text-[#1d666e] text-xs px-3 py-1 rounded-full border border-[#1d666e]" onClick={() => abrirFiltro("alunos")}>
+              Todos os alunos
+            </button>
           </div>
-        </>
+          <ModalFiltroHome isOpen={showModalFiltro} onClose={() => setShowModalFiltro(false)} categoriaSelecionada={categoriaFiltro}/>
+        </div>
       )}
 
       {/* Conteúdo das Abas */}
