@@ -86,7 +86,7 @@ export default function Home() {
         <div className="p-4">
           <ul className="mt-6 text-[#118693] font-medium">
             <li className="py-2 text-xl">
-              <button onClick={() => setTab("atividades")}>Atividades</button>
+              <button onClick={() => navigate("/disciplinas")}>Atividades</button>
             </li>
             <li className="py-2 text-xl">
               <button>Notas</button>
@@ -95,7 +95,7 @@ export default function Home() {
               <button>Reservar Sala</button>
             </li>
             <li className="py-2 text-xl">
-              <button>Matriz Curricular</button>
+              <button onClick={() => navigate("/matriz_curricular")}>Matriz Curricular</button>
             </li>
             <li className="py-2 text-xl">
               <button>Ajuda</button>

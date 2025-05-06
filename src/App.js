@@ -11,6 +11,8 @@ import Search from "./pages/Search";
 import Footer from "./components/Footer";
 import AtividadesEntregues from "./pages/AtividadesEntregues";
 import Disciplinas from "./pages/Disciplinas";
+import MatrizCurricular from "./pages/MatrizCurricular";
+import MatrizCurricular_Curso from "./pages/MartrizCurricular_Curso";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
             <Route path="/search" element={<Search />} />
             <Route path="/atividades/:id/entregues" element={<AtividadesEntregues />} />
             <Route path="/disciplinas" element={<Disciplinas />} />
+            <Route path="/matriz_curricular" element={<MatrizCurricular />} />
+            <Route path="/matriz_curricular/:id/curso" element={<MatrizCurricular_Curso />} />
           </Routes>
         </div>
         <Footer />
