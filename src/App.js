@@ -9,6 +9,8 @@ import Home from "./pages/Home";
 import Perfil from "./pages/Perfil";
 import Search from "./pages/Search";
 import Footer from "./components/Footer";
+import AtividadesEntregues from "./pages/AtividadesEntregues";
+import Disciplinas from "./pages/Disciplinas";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
             <Route path="/chat" element={<Chat />} />
             <Route path="/perfil" element={<Perfil />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/atividades/:id/entregues" element={<AtividadesEntregues />} />
+            <Route path="/disciplinas" element={<Disciplinas />} />
           </Routes>
         </div>
         <Footer />

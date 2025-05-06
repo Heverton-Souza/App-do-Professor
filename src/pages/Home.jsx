@@ -1,59 +1,84 @@
 import { useState } from "react";
-import { Search, ChevronRight, CalendarPlus, Menu } from "lucide-react"; // Importando o ícone de menu
+import { useNavigate } from "react-router-dom";
+import { Search, ChevronRight, Menu } from "lucide-react";
 import ModalFiltroHome from "../components/ModalFiltroHome";
 
-
-
-
 export default function Home() {
+  const navigate = useNavigate();
+
+  // Função para navegação
+  const irParaEntregas = (atividadeId) => {
+    navigate(`/atividades/${atividadeId}/entregues`);
+  };
+
+  // Estados principais
   const [tab, setTab] = useState("atividades");
   const [focused, setFocused] = useState(false);
-  const [showReminder, setShowReminder] = useState(true); // Estado para controlar a visibilidade do aviso
-  const [menuVisible, setMenuVisible] = useState(false); // Estado para controlar a visibilidade do menu lateral
+  const [showReminder, setShowReminder] = useState(true);
+  const [menuVisible, setMenuVisible] = useState(false);
   const [showModalFiltro, setShowModalFiltro] = useState(false);
-  const [categoriaFiltro, setCategoriaFiltro] = useState(""); // nova state
+  const [categoriaFiltro, setCategoriaFiltro] = useState("");
+  const [filtrosAtivos, setFiltrosAtivos] = useState({
+    disciplinas: "",
+    alunos: "",
+  });
 
+  // Função para abrir o filtro
   const abrirFiltro = (categoria) => {
     setCategoriaFiltro(categoria);
     setShowModalFiltro(true);
   };
-  
 
+  // Função para aplicar o filtro
+  const onFiltra = (categoria, valor) => {
+    setFiltrosAtivos((prev) => ({
+      ...prev,
+      [categoria]: valor,
+    }));
+    setShowModalFiltro(false);
+  };
+
+  // Dados de exemplo das atividades
   const atividades = [
     {
       id: 1,
       nome: "Projeto IV – Interface...",
       periodo: "2024/2",
       entregas: "3 entregues",
-      imagem: "/imagens/icons_home_01.png"
+      imagem: "/imagens/icons_home_01.png",
+      turma: "Turma A",
+      aluno: "João Silva",
     },
     {
       id: 2,
       nome: "Design e sustentabilidade",
       periodo: "2024/2",
       entregas: "nenhuma entregue",
-      imagem: "/imagens/icons_home_02.png"
+      imagem: "/imagens/icons_home_02.png",
+      turma: "Turma B",
+      aluno: "Maria Souza",
     },
     {
       id: 3,
       nome: "Computação gráfica",
       periodo: "2024/2",
-      entregas: "1 entregues",
-      imagem: "/imagens/icons_home_03.png"
+      entregas: "1 entregue",
+      imagem: "/imagens/icons_home_03.png",
+      turma: "Turma A",
+      aluno: "João Silva",
     },
   ];
 
   return (
     <div>
-      {/* Fundo preto com blur quando o menu estiver aberto */}
+      {/* Menu Lateral */}
       {menuVisible && (
         <div
-          onClick={() => setMenuVisible(false)} // Fecha o menu ao clicar no fundo
+          onClick={() => setMenuVisible(false)}
           className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-sm z-30"
         />
       )}
 
-      {/* Menu Lateral */}
       <div
         className={`fixed top-0 right-0 ps-5 h-full bg-[#B7D1D0] shadow-lg z-30 transition-transform duration-300 ${menuVisible ? "translate-x-0" : "translate-x-full"}`}
         style={{ width: "85%" }}
@@ -79,7 +104,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Barra superior e conteúdo principal */}
+      {/* Barra superior */}
       <div className="bg-[#118693] m-0 p-0">
         <div className="p-5">
           <div className="flex justify-end text-white text-xl">
@@ -90,14 +115,13 @@ export default function Home() {
 
           <h1 className="font-semibold mb-3 text-[white] text-2xl">Olá, Fernando</h1>
 
-          {/* Condicionalmente renderiza o aviso (com fundo colorido) */}
           {showReminder && (
             <div className="bg-[#b7e3e0] text-[#118693] p-4 rounded-xl mb-4 shadow">
               <div className="flex justify-between">
                 <p className="font-semibold">Fique em dia!</p>
                 <i
                   className="fa-solid fa-xmark cursor-pointer"
-                  onClick={() => setShowReminder(false)} // Muda o estado para false quando o "x" é clicado
+                  onClick={() => setShowReminder(false)}
                 />
               </div>
               <p className="text-sm">Lembre de atribuir notas às atividades dos seus alunos até 1 de abril.</p>
@@ -129,7 +153,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Só exibe Search, Turmas e Alunos quando a aba for "Atividades" */}
+      {/* Filtros de busca e Modal */}
       {tab === "atividades" && (
         <div>
           <div className="mb-3 mt-5 mx-3 relative">
@@ -141,67 +165,53 @@ export default function Home() {
               onBlur={() => setFocused(false)}
             />
             <Search
-              className={`absolute top-2.5 right-3 transition-colors duration-200 ${focused ? "text-[#118693]" : "text-gray-600"}`}
+              className={`absolute top-3 right-3 transition-colors duration-200 ${focused ? "text-[#118693]" : "text-gray-600"}`}
               size={18}
             />
           </div>
 
           <div className="flex gap-2 mb-4 mx-3">
-            <button className="text-[#1d666e] text-xs px-3 py-1 rounded-full border border-[#1d666e]" onClick={() => abrirFiltro("disciplinas")}>
-              Todas as turmas
+            <button className="text-black text-xs px-3 py-0.5 rounded-full border border-black" onClick={() => abrirFiltro("disciplinas")}>
+              Todas as turmas<i className="fa-solid fa-chevron-down text-[10px] ms-1"></i>
             </button>
-            <button className="text-[#1d666e] text-xs px-3 py-1 rounded-full border border-[#1d666e]" onClick={() => abrirFiltro("alunos")}>
-              Todos os alunos
+            <button className="text-black text-xs px-3 py-0.5 rounded-full border border-black" onClick={() => abrirFiltro("alunos")}>
+              Todos os alunos<i className="fa-solid fa-chevron-down text-[10px] ms-1"></i>
             </button>
           </div>
-          <ModalFiltroHome isOpen={showModalFiltro} onClose={() => setShowModalFiltro(false)} categoriaSelecionada={categoriaFiltro}/>
+          <ModalFiltroHome
+            isOpen={showModalFiltro}
+            onClose={() => setShowModalFiltro(false)}
+            onFiltra={onFiltra} // Aqui é onde aplicamos o filtro
+            categoriaSelecionada={categoriaFiltro}
+          />
         </div>
       )}
 
-      {/* Conteúdo das Abas */}
+      {/* Conteúdo das atividades */}
       <div className="flex flex-col gap-3 mx-3">
-        {tab === "atividades" ? (
-          atividades.map((atividade) => (
-            <div
-              key={atividade.id}
-              className="bg-white rounded-xl shadow p-4 flex items-center justify-between"
-            >
-              <div className="flex items-center gap-3">
-                <div className="text-2xl w-10 h-10 rounded-full">
-                  <img className="w-100 h-100" src={`${atividade.imagem}`} alt="" />
-                </div>
-                <div>
-                  <p className="font-medium">{atividade.nome}</p>
-                  <p className="text-sm text-gray-500">{atividade.periodo}; {atividade.entregas}</p>
-                </div>
+        {atividades.filter((atividade) => {
+          const { disciplinas, alunos } = filtrosAtivos;
+          if (disciplinas && atividade.turma !== disciplinas) return false;
+          if (alunos && atividade.aluno !== alunos) return false;
+          return true;
+        }).map((atividade) => (
+          <div
+            key={atividade.id}
+            className="bg-white rounded-xl shadow p-4 flex items-center justify-between"
+            onClick={() => irParaEntregas(atividade.id)}
+          >
+            <div className="flex items-center gap-3">
+              <div className="text-2xl w-10 h-10 rounded-full">
+                <img className="w-100 h-100" src={atividade.imagem} alt={atividade.nome} />
               </div>
-              <span className="text-2xl text-gray-400">›</span>
-            </div>
-          ))
-        ) : (
-          <div>
-            <h1 className="mt-3 mb-4 text-xl font-semibold">Próximos Eventos</h1>
-            <div className="bg-white rounded-xl flex justify-between content-center shadow p-4">
               <div>
-                <h3 className="font-medium text-xl">24 de março</h3>
-                <div className="flex">
-                  <span className="bg-[#60C1CC] rounded-full text-white text-sm px-3 py-0.5 flex items-center justify-center me-2">
-                    Reserva
-                  </span>
-                  <span className="text-gray-600">Sala 501</span>
-                </div>
-              </div>
-              <div className="content-center text-gray-800">
-                <ChevronRight size={24} className="" />
+                <p className="font-medium">{atividade.nome}</p>
+                <p className="text-sm text-gray-500">{atividade.periodo}; {atividade.entregas}</p>
               </div>
             </div>
-
-            <div className="bg-white rounded-xl flex items-center justify-center shadow p-4 mt-4 text-lg text-gray-700">
-              <i className="fa-solid fa-plus"></i>
-              <p className="font-medium ms-2">Reservar sala</p>
-            </div>
+            <span className="text-2xl text-gray-400">›</span>
           </div>
-        )}
+        ))}
       </div>
     </div>
   );

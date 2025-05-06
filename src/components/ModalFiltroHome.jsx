@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const ModalFiltro = ({ isOpen, onClose, categoriaSelecionada }) => {
+const ModalFiltro = ({ isOpen, onClose, categoriaSelecionada, onFiltrar, onLimpar }) => {
   const [selected, setSelected] = useState("");
+
+  useEffect(() => {
+    // Sempre que abrir o modal, resetar seleção
+    setSelected("");
+  }, [isOpen, categoriaSelecionada]);
 
   const filtros = {
     disciplinas: [
@@ -11,10 +16,17 @@ const ModalFiltro = ({ isOpen, onClose, categoriaSelecionada }) => {
       "Todas as Turmas"
     ],
     alunos: [
-      "Ana Clara",
-      "Carlos Eduardo",
-      "Fernanda Souza",
+      "Nathália Junger",
+      "Lucy Felix",
+      "Júlia Marques",
+      "Lara Stellet",
+      "Mateus Ramos",
       "Todos os Alunos"
+    ],
+    status: [
+      "Entregue",
+      "Entregue em atraso",
+      "Pendente"
     ]
   };
 
@@ -63,10 +75,26 @@ const ModalFiltro = ({ isOpen, onClose, categoriaSelecionada }) => {
 
         {/* Botão e link */}
         <div className="mt-auto w-full px-6 pb-6 absolute bottom-0 left-0">
-          <button disabled={!selected} className={`w-full py-3 text-white text-base rounded-full font-semibold mb-2 ${ selected ? "bg-[#118693]" : "bg-gray-300 cursor-not-allowed" }`} onClick={() => { onClose(); }}>
+          <button
+            disabled={!selected}
+            className={`w-full py-3 text-white text-base rounded-full font-semibold mb-2 ${
+              selected ? "bg-[#118693]" : "bg-gray-300 cursor-not-allowed"
+            }`}
+            onClick={() => {
+              onFiltrar(categoriaSelecionada, selected);
+              onClose();
+            }}
+          >
             Aplicar
           </button>
-          <p onClick={() => setSelected("")} className="text-center text-sm text-[#118693] underline cursor-pointer">
+          <p
+            onClick={() => {
+              setSelected("");
+              onLimpar?.(categoriaSelecionada); // Executa se onLimpar for fornecido
+              onClose();
+            }}
+            className="text-center text-sm text-[#118693] underline cursor-pointer"
+          >
             Limpar
           </p>
         </div>
