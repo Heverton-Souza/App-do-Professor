@@ -13,12 +13,13 @@ import AtividadesEntregues from "./pages/AtividadesEntregues";
 import Disciplinas from "./pages/Disciplinas";
 import MatrizCurricular from "./pages/MatrizCurricular";
 import MatrizCurricular_Curso from "./pages/MartrizCurricular_Curso";
+import MatrizCurricular_Disciplina from "./pages/MatrizCurricular_Disciplina";
 
 function App() {
   return (
     <Router>
-      <div className="flex flex-col justify-between bg-[#B7D1D0] min-h-screen">
-        <div className="h-dvh flex-1 overflow-y-auto">
+      <div className="flex flex-col justify-between bg-[#B7D1D0] h-[94vh]">
+        <div className="flex-1 overflow-y-auto">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/agenda" element={<Agenda />} />
@@ -29,10 +30,11 @@ function App() {
             <Route path="/disciplinas" element={<Disciplinas />} />
             <Route path="/matriz_curricular" element={<MatrizCurricular />} />
             <Route path="/matriz_curricular/:id/curso" element={<MatrizCurricular_Curso />} />
+            <Route path="/matriz_curricular/curso/:id/disciplina" element={<MatrizCurricular_Disciplina />} />
           </Routes>
         </div>
-        <Footer />
       </div>
+      <Footer />
     </Router>
   );
 }

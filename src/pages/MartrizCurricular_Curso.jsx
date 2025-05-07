@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronDown, ChevronUp, ChevronRight } from "lucide-react";
+import periodos from "../data/Periodos.json";
+
 
 export default function AtividadesEntregues() {
   const navigate = useNavigate();
@@ -9,85 +11,10 @@ export default function AtividadesEntregues() {
   const togglePeriod = (id) => {
     setExpandedPeriod(expandedPeriod === id ? null : id);
   };
-
-  const periodos = [
-    {
-      id: 1,
-      nome: "1° Período - Núcleo básico 1",
-      cor: "#E2FFFE",
-      carga_horaria: "500",
-      requisitos: "Nenhum",
-      disciplinas: [
-        "Criatividade", "Desenhos", "História da Arte", "História do Design", "Oficina da Cor", "Plástica 1", "Produção e Interpretação de Textos", "Representações Técnicas", "Teoria da Percepção e Semiótica"
-      ]
-    },
-    {
-      id: 2,
-      nome: "2° Período - Núcleo básico 2",
-      cor: "#E2FFFE",
-      carga_horaria: "500",
-      requisitos: "Plástica I",
-      disciplinas: [
-        "Computação Gráfica", "Ergonomia", "Liguagem Fotográfica e Cinematográfica", "Metodologia de Projetos", "Oficina da Forma", "Oficina de Portfólio", "Teoria da Comunicação e Informação", "Teoria da Comunicação e Informação"
-      ]
-    },
-    {
-      id: 3,
-      nome: "3° Período",
-      cor: "#60C1CC",
-      carga_horaria: "460",
-      requisitos: "Núcleo básico",
-      disciplinas: []
-    },
-    {
-      id: 2,
-      nome: "3° Período",
-      cor: "#60C1CC",
-      carga_horaria: "460",
-      requisitos: "Núcleo básico",
-      disciplinas: []
-    },
-    {
-      id: 3,
-      nome: "4° Período",
-      cor: "#60C1CC",
-      carga_horaria: "380",
-      requisitos: "Núcleo básico",
-      disciplinas: []
-    },
-    {
-      id: 4,
-      nome: "5° Período",
-      cor: "#60C1CC",
-      carga_horaria: "340",
-      requisitos: "Núcleo básico",
-      disciplinas: []
-    },
-    {
-      id: 5,
-      nome: "6° Período",
-      cor: "#60C1CC",
-      carga_horaria: "340",
-      requisitos: "Núcleo básico",
-      disciplinas: []
-    },
-    {
-      id: 6,
-      nome: "7° Período",
-      cor: "#60C1CC",
-      carga_horaria: "340",
-      requisitos: "Núcleo básico",
-      disciplinas: []
-    },
-    {
-      id: 7,
-      nome: "8° Período - Conclusão do curso 2",
-      cor: "#118693",
-      carga_horaria: "480",
-      requisitos: "Todas as disciplinas anteriores e complementares",
-      disciplinas: []
-    },
-  ];
+  
+  const irParaDisciplina = (disciplinaId) => {
+    navigate(`/matriz_curricular/curso/${disciplinaId}/disciplina`);
+  };
 
   return (
     <div>
@@ -127,10 +54,10 @@ export default function AtividadesEntregues() {
             {expandedPeriod === periodo.id && periodo.disciplinas.length > 0 && (
               <div className="rounded-lg mb-2 mc-curso-disciplinas mt-4">
                 {periodo.disciplinas.map((disciplina, index) => (
-                  <div key={index} className="flex justify-between border-b mb-2 pb-1 border-[#118693]">
+                  <div key={index} onClick={() => disciplina.id === 17 && irParaDisciplina(17)} className="flex justify-between border-b mb-2 pb-1 border-[#118693]">
                     <div>
-                      <p className="text-gray-800">{disciplina}</p>
-                      <p className="text-xs text-gray-500">Prof</p>
+                      <p className="text-black">{disciplina.nome}</p>
+                      <p className="text-xs text-gray-700">Prof</p>
                     </div>
                     <div>
                       <ChevronRight size={18}/>

@@ -1,35 +1,32 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Search, ChevronRight, Menu } from "lucide-react";
+import { Search, ChevronRight, Menu, CalendarCheck, Plus } from "lucide-react";
 import ModalFiltroHome from "../components/ModalFiltroHome";
 
 export default function Home() {
   const navigate = useNavigate();
-
-  // Função para navegação
-  const irParaEntregas = (atividadeId) => {
-    navigate(`/atividades/${atividadeId}/entregues`);
-  };
-
-  // Estados principais
+  const [mostrarBotaoReserva, setMostrarBotaoReserva] = useState(false);
   const [tab, setTab] = useState("atividades");
   const [focused, setFocused] = useState(false);
   const [showReminder, setShowReminder] = useState(true);
   const [menuVisible, setMenuVisible] = useState(false);
   const [showModalFiltro, setShowModalFiltro] = useState(false);
   const [categoriaFiltro, setCategoriaFiltro] = useState("");
+
   const [filtrosAtivos, setFiltrosAtivos] = useState({
     disciplinas: "",
     alunos: "",
   });
 
-  // Função para abrir o filtro
+  const irParaEntregas = (atividadeId) => {
+    navigate(`/atividades/${atividadeId}/entregues`);
+  };
+
   const abrirFiltro = (categoria) => {
     setCategoriaFiltro(categoria);
     setShowModalFiltro(true);
   };
 
-  // Função para aplicar o filtro
   const onFiltra = (categoria, valor) => {
     setFiltrosAtivos((prev) => ({
       ...prev,
@@ -189,29 +186,68 @@ export default function Home() {
 
       {/* Conteúdo das atividades */}
       <div className="flex flex-col gap-3 mx-3">
-        {atividades.filter((atividade) => {
-          const { disciplinas, alunos } = filtrosAtivos;
-          if (disciplinas && atividade.turma !== disciplinas) return false;
-          if (alunos && atividade.aluno !== alunos) return false;
-          return true;
-        }).map((atividade) => (
-          <div
-            key={atividade.id}
-            className="bg-white rounded-xl shadow p-4 flex items-center justify-between"
-            onClick={() => irParaEntregas(atividade.id)}
-          >
-            <div className="flex items-center gap-3">
-              <div className="text-2xl w-10 h-10 rounded-full">
-                <img className="w-100 h-100" src={atividade.imagem} alt={atividade.nome} />
+      {tab === "atividades" ? (
+          <div className="flex flex-col gap-3 mx-3">
+            {atividades.map((atividade) => (
+              <div
+                key={atividade.id}
+                className="bg-white rounded-xl shadow p-4 flex items-center justify-between"
+                onClick={() => irParaEntregas(atividade.id)}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="text-2xl w-10 h-10 rounded-full">
+                    <img className="w-100 h-100" src={`${atividade.imagem}`} alt="" />
+                  </div>
+                  <div>
+                    <p className="font-medium">{atividade.nome}</p>
+                    <p className="text-sm text-gray-500">{atividade.periodo}; {atividade.entregas}</p>
+                  </div>
+                </div>
+                <span className="text-2xl text-gray-400">›</span>
               </div>
+            ))}
+          </div>
+        ) : (
+          <div className="mt-3 mx-3">
+            <h1 className="mb-4 text-xl font-semibold">Próximos Eventos</h1>
+            <div className="bg-white rounded-xl flex justify-between content-center shadow p-4">
               <div>
-                <p className="font-medium">{atividade.nome}</p>
-                <p className="text-sm text-gray-500">{atividade.periodo}; {atividade.entregas}</p>
+                <h3 className="font-medium text-xl">24 de março</h3>
+                <div className="flex">
+                  <span className="bg-[#60C1CC] rounded-full text-white text-sm px-3 py-0.5 flex items-center justify-center me-2">
+                    Reserva
+                  </span>
+                  <span className="text-gray-600">Sala 501</span>
+                </div>
+              </div>
+              <div className="content-center text-gray-800">
+                <ChevronRight size={24} />
               </div>
             </div>
-            <span className="text-2xl text-gray-400">›</span>
+
+            {/* Botões flutuantes */}
+            <div className="absolute bottom-16 right-2 flex flex-col items-center gap-2 z-10">
+              {mostrarBotaoReserva && (
+                <div className="relative group">
+                  <button
+                    className="bg-white shadow rounded-full px-3 py-3 flex items-center text-sm text-gray-500"
+                  >
+                    <CalendarCheck size={20} />
+                  </button>
+                  <div className="absolute right-full top-1/2 transform -translate-y-1/2 mr-2 px-2 py-1 rounded text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    Reservar Sala
+                  </div>
+                </div>
+              )}
+              <button
+                className="bg-[#60C1CC] text-[#118693] rounded-full shadow w-14 h-14 flex items-center justify-center text-3xl"
+                onClick={() => setMostrarBotaoReserva(!mostrarBotaoReserva)}
+              >
+                <Plus size={28} />
+              </button>
+            </div>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );

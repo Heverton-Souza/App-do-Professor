@@ -1,0 +1,157 @@
+[
+  {
+    "id": 1,
+    "nome": "1° Período - Núcleo básico 1",
+    "cor": "#E2FFFE",
+    "carga_horaria": "500",
+    "requisitos": "Nenhum",
+    "disciplinas": [
+      {
+        "id": 1,
+        "nome": "Criatividade"
+      },
+      {
+        "id": 2,
+        "nome": "Desenhos"
+      },
+      {
+        "id": 3,
+        "nome": "História da Arte"
+      },
+      {
+        "id": 4,
+        "nome": "Oficina da Cor"
+      },
+      {
+        "id": 5,
+        "nome": "Plástica 1"
+      },
+      {
+        "id": 6,
+        "nome": "Produção e Interpretação de Textos"
+      },
+      {
+        "id": 7,
+        "nome": "Representações Técnicas"
+      },
+      {
+        "id": 8,
+        "nome": "Teoria da Percepção e Semiótica"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nome": "2° Período - Núcleo básico 2",
+    "cor": "#E2FFFE",
+    "carga_horaria": "500",
+    "requisitos": "Plástica I",
+    "disciplinas": [
+      {
+        "id": 9,
+        "nome": "Computação Gráfica"
+      },
+      {
+        "id": 10,
+        "nome": "Ergonomia"
+      },
+      {
+        "id": 11,
+        "nome": "Liguagem Fotográfica e Cinematográfica"
+      },
+      {
+        "id": 12,
+        "nome": "Metodologia de Projetos"
+      },
+      {
+        "id": 13,
+        "nome": "Oficina da Forma"
+      },
+      {
+        "id": 14,
+        "nome": "Oficina de Portfólio"
+      },
+      {
+        "id": 15,
+        "nome": "Teoria da Comunicação e Informação"
+      },
+      {
+        "id": 16,
+        "nome": "Teoria da Comunicação e Informação"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "nome": "3° Período",
+    "cor": "#60C1CC",
+    "carga_horaria": "460",
+    "requisitos": "Núcleo básico",
+    "disciplinas": []
+  },
+  {
+    "id": 2,
+    "nome": "3° Período",
+    "cor": "#60C1CC",
+    "carga_horaria": "460",
+    "requisitos": "Núcleo básico",
+    "disciplinas": []
+  },
+  {
+    "id": 3,
+    "nome": "4° Período",
+    "cor": "#60C1CC",
+    "carga_horaria": "380",
+    "requisitos": "Núcleo básico",
+    "disciplinas": []
+  },
+  {
+    "id": 4,
+    "nome": "5° Período",
+    "cor": "#60C1CC",
+    "carga_horaria": "340",
+    "requisitos": "Núcleo básico",
+    "disciplinas": []
+  },
+  {
+    "id": 5,
+    "nome": "6° Período",
+    "cor": "#60C1CC",
+    "carga_horaria": "340",
+    "requisitos": "Núcleo básico",
+    "disciplinas": [
+      {
+        "id": 19,
+        "nome": "Comunicação Publicitária"
+      },
+      {
+        "id": 18,
+        "nome": "Produção de Textos Cientificos"
+      },
+      {
+        "id": 17,
+        "nome": "Projeto IV - Interfaces Digitais e Hipermídeas"
+      },
+      {
+        "id": 20,
+        "nome": "Projeto IV - Tecnologia Digital"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "nome": "7° Período",
+    "cor": "#60C1CC",
+    "carga_horaria": "340",
+    "requisitos": "Núcleo básico",
+    "disciplinas": []
+  },
+  {
+    "id": 7,
+    "nome": "8° Período - Conclusão do curso 2",
+    "cor": "#118693",
+    "carga_horaria": "480",
+    "requisitos": "Todas as disciplinas anteriores e complementares",
+    "disciplinas": []
+  }
+]

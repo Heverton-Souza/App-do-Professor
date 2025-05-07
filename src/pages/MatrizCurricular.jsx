@@ -37,7 +37,7 @@ export default function AtividadesEntregues() {
           <ChevronLeft size={30} />
         </button>
         <div>
-          <h1 className="text-2xl text-gray-900 font-semibold">Matriz Curricular</h1>
+          <h1 className="text-2xl text-gray-900 font-semibold">Matriz curricular</h1>
         </div>
       </div>
 
