@@ -14,13 +14,13 @@ export default function Footer() {
       <Link to="/search" className={`flex flex-col items-center ${isActive("/search")}`}>
         <Search  size={24} />
       </Link>
-      <Link to="/chat" className={`flex flex-col items-center ${isActive("/chat")}`}>
+      <Link to="/" className={`flex flex-col items-center ${isActive("/chat")}`}>
         <MessageSquareDot  size={24} />
       </Link>
-      <Link to="/agenda" className={`flex flex-col items-center ${isActive("/agenda")}`}>
+      <Link to="/search" className={`flex flex-col items-center ${isActive("/agenda")}`}>
         <CalendarDays  size={24} />
       </Link>
-      <Link to="/perfil" className={`flex flex-col items-center ${isActive("/perfil")}`}>
+      <Link to="/" className={`flex flex-col items-center ${isActive("/perfil")}`}>
         <User   size={24} />
       </Link>
     </footer>

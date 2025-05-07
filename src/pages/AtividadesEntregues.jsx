@@ -144,6 +144,7 @@ export default function AtividadesEntregues() {
           {alunosFiltrados.map((atividade) => (
             <div
               key={atividade.id}
+              onClick={() => navigate("/atividades/01/entregues/aluno/01")} 
               className="bg-white rounded-xl shadow p-4 flex items-center justify-between"
             >
               <div className="flex items-center gap-3">

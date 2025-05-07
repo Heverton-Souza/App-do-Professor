@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronLeft, ChevronDown, ChevronUp, ChevronRight } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 
 export default function AtividadesEntregues() {
   const navigate = useNavigate();
-  const [expandedPeriod, setExpandedPeriod] = useState(null); // novo estado
-
-  const togglePeriod = (id) => {
-    setExpandedPeriod(expandedPeriod === id ? null : id);
-  };
+  const [expandedPeriod, setExpandedPeriod] = useState(null);
 
   return (
     <div>
@@ -69,11 +65,7 @@ export default function AtividadesEntregues() {
           </div>
           <div className="border-b mb-2 pb-1 border-[#118693]">
             <p className="text-black font-semibold mb-2">Bibliografia:</p>
-            <p className="text-gray-500 text-sm text-justify pb-3">LOWDERMILK, Travis. Design Centrado no Usuário. 1. ed. São Paulo: Novatec, 2013.
-
-ROGERS, Yvonne; SHARP, Helen; PREECE, Jenny. Design de Interação: Além da Interação Humano-Computador. 3. ed. São Paulo: Bookman,2013.
-
-MORAES, Anamaria de; SANTA ROSA, José Guilherme. Avaliação e Projetono Design de Interfaces. 2. ED. São Palo: Editora 2AB,2012.</p>
+            <p className="text-gray-500 text-sm text-justify pb-3">LOWDERMILK, Travis. Design Centrado no Usuário. 1. ed. São Paulo: Novatec, 2013.<br/>ROGERS, Yvonne; SHARP, Helen; PREECE, Jenny. Design de Interação: Além da Interação Humano-Computador. 3. ed. São Paulo: Bookman,2013.<br/>MORAES, Anamaria de; SANTA ROSA, José Guilherme. Avaliação e Projetono Design de Interfaces. 2. ED. São Palo: Editora 2AB,2012.</p>
           </div>
         </div>
       </div>

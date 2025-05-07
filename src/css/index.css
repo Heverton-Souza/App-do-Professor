@@ -15,3 +15,7 @@
 .mc-curso-disciplinas > div:last-child {
   border: 0!important;
 }
+
+button:disabled {
+  opacity: 0.5!important;
+}

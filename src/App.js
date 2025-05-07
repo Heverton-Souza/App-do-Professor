@@ -14,6 +14,7 @@ import Disciplinas from "./pages/Disciplinas";
 import MatrizCurricular from "./pages/MatrizCurricular";
 import MatrizCurricular_Curso from "./pages/MartrizCurricular_Curso";
 import MatrizCurricular_Disciplina from "./pages/MatrizCurricular_Disciplina";
+import Aluno from "./pages/Aluno";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/matriz_curricular" element={<MatrizCurricular />} />
             <Route path="/matriz_curricular/:id/curso" element={<MatrizCurricular_Curso />} />
             <Route path="/matriz_curricular/curso/:id/disciplina" element={<MatrizCurricular_Disciplina />} />
+            <Route path="/atividades/01/entregues/aluno/01" element={<Aluno />} />
           </Routes>
         </div>
       </div>
