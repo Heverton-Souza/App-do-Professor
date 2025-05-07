@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# 📚 App Professor – Gestão de Disciplinas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicativo desenvolvido como parte de uma aula de Gerenciamento de Projetos. O objetivo é oferecer aos professores uma ferramenta prática para gerenciar disciplinas, acompanhar atividades dos alunos e organizar tarefas.
 
-## Available Scripts
+_Esse é um projeto para fins educativos, nenhuma das imagens, ícones ou templates são de direito do autor ou serão usadas comercialmente_
 
-In the project directory, you can run:
+## 📌 Funcionalidades
 
-### `npm start`
+- Visualizar matriz curricular;
+- Adicionar tarefas para os alunos;
+- Ver dados do aluno;
+- Ver tarefas entregues por alunos;
+- Listar disciplinas existentes;
+- Visualizar atividade entregue por aluno;
+- Adicionar notas e comentários em atividades entregues.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🖥️ Painel de Design
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Os protótipos de design da aplicação podem ser visualizados aqui:
 
-### `npm test`
+- [Painel de Design](https://www.figma.com/design/H2lvn6YylUL4gQz6hcDhGO/PAGE-PROFESSORES-2?node-id=1-1230&t=2DHAZrFZqzLBFI1W-0)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Autores
 
-### `npm run build`
+#### 🖌 Design
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Nathália Junger]()
+- [Lucy Felix]()
+- [Júlia Marques]()
+- [Lara Stellet]()
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### 💻 Desenvolvimento
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Mateus Ramos](https://github.com/MateusRamos)
+- [Iury Alcantara](https://github.com/iurysf)
+- [Frederico Viana](https://github.com/FredericoVianaa)
+- [Thiago Manhaes](https://github.com/ThiagoManhaes2020)
+- [Heverton Souza](https://github.com/Heverton-Souza)
+- [Marcus Mariano](https://github.com/Marckms26)
+- [Isaque Ferrarez](https://github.com/IsaqueFerrarez)
 
-### `npm run eject`
+#### 📋 Gerência
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Project Owner: [Heverton Souza](https://github.com/Heverton-Souza)
+- Orientação / Professor: [Fernando Carvalho](https://github.com/flcs)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 🚀 Instalação
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Para rodar o projeto localmente:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone o repositório
 
-## Learn More
+```
+git clone https://github.com/Heverton-Souza/App-do-Professor
+cd App-do-Professor
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Instale as dependências:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm install
+```
 
-### Code Splitting
+3. Inicie o projeto:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+npm start
+```
 
-### Analyzing the Bundle Size
+A aplicação será aberta em `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🧑‍💻 Tecnologias utilizadas
 
-### Making a Progressive Web App
+- React
+- Tailwind CSS 3
+- React Router DOM
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 💡 Usabilidade
 
-### Advanced Configuration
+_O sistema foi pensado para ser direto, com uma interface clara e amigável. Professores podem acessar rapidamente as informações de seus alunos e disciplinas, bem como adicionar e avaliar tarefas com facilidade. A navegação é feita em etapas simples, focando na eficiência e clareza de uso._
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📄 Licença
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**_Este projeto é de uso educacional e não possui licença comercial.
+Sinta-se livre para estudar, adaptar e expandir o código com fins acadêmicos._**
