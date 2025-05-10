@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/App-do-Professor/static/css/main.8db237c1.css",
+    "main.js": "/App-do-Professor/static/js/main.1abbd4af.js",
+    "static/js/453.82b01d74.chunk.js": "/App-do-Professor/static/js/453.82b01d74.chunk.js",
+    "index.html": "/App-do-Professor/index.html",
+    "main.8db237c1.css.map": "/App-do-Professor/static/css/main.8db237c1.css.map",
+    "main.1abbd4af.js.map": "/App-do-Professor/static/js/main.1abbd4af.js.map",
+    "453.82b01d74.chunk.js.map": "/App-do-Professor/static/js/453.82b01d74.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8db237c1.css",
+    "static/js/main.1abbd4af.js"
+  ]
+}
