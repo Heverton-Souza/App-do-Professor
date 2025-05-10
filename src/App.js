@@ -18,7 +18,7 @@ import Aluno from "./pages/Aluno";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/App-do-Professor">
       <div className="flex flex-col justify-between bg-[#B7D1D0] h-[94vh]">
         <div className="flex-1 overflow-y-auto">
           <Routes>

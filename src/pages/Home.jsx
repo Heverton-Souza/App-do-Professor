@@ -42,7 +42,7 @@ export default function Home() {
       nome: "Projeto IV – Interface...",
       periodo: "2024/2",
       entregas: "3 entregues",
-      imagem: "/imagens/icons_home_01.png",
+      imagem: "icons_home_01.png",
       turma: "Turma A",
       aluno: "João Silva",
     },
@@ -51,7 +51,7 @@ export default function Home() {
       nome: "Design e sustentabilidade",
       periodo: "2024/2",
       entregas: "nenhuma entregue",
-      imagem: "/imagens/icons_home_02.png",
+      imagem: "icons_home_02.png",
       turma: "Turma B",
       aluno: "Maria Souza",
     },
@@ -60,7 +60,7 @@ export default function Home() {
       nome: "Computação gráfica",
       periodo: "2024/2",
       entregas: "1 entregue",
-      imagem: "/imagens/icons_home_03.png",
+      imagem: "icons_home_03.png",
       turma: "Turma A",
       aluno: "João Silva",
     },
@@ -196,7 +196,7 @@ export default function Home() {
               >
                 <div className="flex items-center gap-3">
                   <div className="text-2xl w-10 h-10 rounded-full">
-                    <img className="w-100 h-100" src={`${atividade.imagem}`} alt="" />
+                    <img className="w-100 h-100" src={`${process.env.PUBLIC_URL}/imagens/${atividade.imagem}`} alt="" />
                   </div>
                   <div>
                     <p className="font-medium">{atividade.nome}</p>

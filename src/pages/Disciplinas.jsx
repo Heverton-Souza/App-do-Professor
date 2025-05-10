@@ -122,7 +122,7 @@ export default function AtividadesEntregues() {
         <div key={atividade.id} className="bg-white rounded-xl shadow p-4 flex items-center justify-between" onClick={() => irParaEntregas(atividade.id)}>
           <div className="flex items-center gap-3">
             <div className="text-2xl w-10 h-10 rounded-full">
-              <img className="w-100 h-100" src={atividade.imagem} alt="" />
+              <img className="w-100 h-100" src={`${process.env.PUBLIC_URL}${atividade.imagem}`} alt="" />
             </div>
             <div>
               <p className="font-medium">{atividade.nome}</p>

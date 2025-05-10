@@ -20,7 +20,7 @@ export default function AtividadesEntregues() {
         <div className="flex items-center justify-between gap-4 mb-5">
           <div className="flex items-center">
             <img
-              src="/imagens/perfil_alunos_04.png"
+              src={`${process.env.PUBLIC_URL}/imagens/perfil_alunos_04.png`}
               alt="Lucy"
               className="w-12 h-12 rounded-full me-3"
             />
@@ -40,7 +40,7 @@ export default function AtividadesEntregues() {
           <div className="space-y-3">
             <div className="bg-[#E2FFFE] rounded-xl shadow px-3 py-2 flex items-end justify-between gap-4">
               <img
-                src="/imagens/anexos (2).png"
+                src={`${process.env.PUBLIC_URL}/imagens/anexos (2).png`}
                 alt="Anexo A"
                 className="w-[165px] h-[75px] rounded"
               />
@@ -48,7 +48,7 @@ export default function AtividadesEntregues() {
             </div>
             <div className="bg-[#E2FFFE] rounded-xl shadow px-3 py-2 flex items-end justify-between gap-4">
               <img
-                src="/imagens/anexos (1).png"
+                src={`${process.env.PUBLIC_URL}/imagens/anexos (1).png`}
                 alt="Anexo A"
                 className="w-[165px] h-[75px] rounded"
               />
